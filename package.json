@@ -1,0 +1,25 @@
+{
+  "name": "mid",
+  "main": "./lib/mid.js",
+  "version": "0.0.1",
+  "author": "stoke <stoke@autistici.org>",
+  "dependencies": {
+    "ejs": ">= 0.0.0",
+    "jade": ">= 0.0.0",
+    "hogan.js": ">= 0.0.0",
+    "eco": ">= 0.0.0",
+    "stylus": ">= 0.0.0",
+    "less": ">= 0.0.0",
+    "sass": ">= 0.0.0",
+    "github-flavored-markdown": ">= 0.0.0"
+  },
+
+  "devDependencies": {
+    "api-easy": ">= 0.0.0",
+    "connect": ">= 0.0.0"
+  },
+
+  "scripts": {
+    "test": "vows --spec test/mid-test.js"
+  }
+}
