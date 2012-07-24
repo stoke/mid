@@ -19,7 +19,11 @@ var app = connect()
         break;
 
       case '/bad':
-        res.render('bad.stylus');
+        res.render('bad.styl');
+        break;
+
+      case '/layout':
+        res.render('test.ejs', {test: random}, 'layout.ejs');
         break;
     }
   })
@@ -32,6 +36,13 @@ suite.use('localhost', 3000)
     .expect(200)
     .expect('html should be equal to random', function(err, res, body) {
       assert.equal(body, random);
+    })
+  .next()
+
+  .get('/layout')
+    .expect(200)
+    .expect('html should be equal to random + layout', function(err, res, body) {
+      assert.equal(body, '<b>'+random+'</b>');
     })
   .next()
 
