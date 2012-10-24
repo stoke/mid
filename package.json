@@ -12,11 +12,12 @@
     "stylus": "*",
     "less": "*",
     "sass": "*",
-    "github-flavored-markdown": "*"
+    "marked": "*"
   },
 
   "devDependencies": {
-    "api-easy": "*",
+    "request": "*",
+    "expect.js": "*",
     "connect": "*"
   },
 

@@ -1,7 +1,8 @@
 var mid = require('../lib/mid.js'),
     APIeasy = require('api-easy'),
     path = require('path'),
-    assert = require('assert'),
+    request = require('request'),
+    expect = require('expect.js'),
     connect = require('connect');
 
 var random = Math.random().toString();
@@ -35,14 +36,14 @@ suite.use('localhost', 3000)
   .get('/')
     .expect(200)
     .expect('html should be equal to random', function(err, res, body) {
-      assert.equal(body, random);
+      expect(body).to.be(random);
     })
   .next()
 
   .get('/layout')
     .expect(200)
     .expect('html should be equal to random + layout', function(err, res, body) {
-      assert.equal(body, '<b>'+random+'</b>');
+      expect(body).to.be('<b>'+random+'</b>');
     })
   .next()
 
@@ -53,4 +54,15 @@ suite.use('localhost', 3000)
   .get('/bad')
     .expect(500)
   .export(module);
-  
+/*
+
+describe('mid', function() {
+  describe('views', function() {
+    it('should answer requests correctly', function(done) {
+      request('http://localhost:3000/', function(err, res, body) {
+        expect(err).not.to.be.ok();
+        expect(body).to.be(random);
+      });
+    });
+  });
+})*/
